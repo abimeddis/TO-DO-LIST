@@ -5,7 +5,6 @@ const ADDBTN = document.querySelector(".btn-add");
 const FORM = document.querySelector(".form");
 const TASKSLIST = document.querySelector(".tasks-list");
 const DELETEALLBTN = document.querySelector(".delete-all-btn");
-const CHECKEDD = document.querySelector(".listita");
 
 // CREO ARRAY + LOCAL STORAGE
 
@@ -18,7 +17,7 @@ const saveLocalStorage = (TASKSLIST) => {
 // CREO FUNCION DE RENDERIZADO DE TAREA
 
 const createTask = (task) =>
-  `<li class="listita">${task.name} <img class="overline" src="./overline.svg" data-id=${task.id}><img class="delete-btn" src="./delete.svg.svg" alt="botón de borrar" data-name=${task.name}></li>`;
+  `<li class="listita">${task.name}<img class="delete-btn" src="./delete.svg.svg" alt="botón de borrar" data-name=${task.name}></li>`;
 
 // FUNCION DE RENDERIZADO DE LISTA
 
@@ -41,7 +40,6 @@ const hideDeleteAllBtn = (TASKSLIST) => {
 const addTask = (e) => {
   e.preventDefault();
   const taskName = INPUT.value.trim().replace(/\s+/g, " ");
-  const taskId = INPUT.value.trim().replace(/\s+/g, " ");
   if (!taskName.length) {
     alert("Por Favor Ingrese una tarea");
     return;
@@ -52,7 +50,7 @@ const addTask = (e) => {
     return;
   }
 
-  tasks = [...tasks, { name: taskName, id: taskId }];
+  tasks = [...tasks, { name: taskName }];
   INPUT.value = "";
   renderTasksList(tasks);
   saveLocalStorage(tasks);
@@ -67,19 +65,6 @@ const deleteTask = (e) => {
   const filterName = e.target.dataset.name;
 
   tasks = tasks.filter((task) => task.name !== filterName);
-  renderTasksList(tasks);
-  saveLocalStorage(tasks);
-  hideDeleteAllBtn(tasks);
-};
-
-// FUNCION CHECKEAR 1 TAREA
-
-const chekedTask = (e) => {
-  if (!e.target.classList.contains("overline")) return;
-
-  const filterId = e.target.dataset.id;
-
-  tasks = tasks.filter((task) => task.id !== filterId);
   renderTasksList(tasks);
   saveLocalStorage(tasks);
   hideDeleteAllBtn(tasks);
