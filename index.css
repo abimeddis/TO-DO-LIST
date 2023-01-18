@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*HEADER*/
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.pink {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 300;
+  list-style: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 22, 116, 1) 0%,
+    rgba(135, 24, 159, 1) 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+}
+.blue {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 300;
+  list-style: none;
+  background: linear-gradient(90deg, #1cb5e0 0%, #000851 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/*MAIN*/
+
+.body {
+  background-color: rgba(32, 32, 32, 0.897);
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.form {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 25px;
+}
+
+.input-text {
+  font-size: 1.5rem;
+  font-weight: 300;
+  border-radius: 5px;
+  background-color: #555555;
+  color: white;
+  text-align: center;
+}
+
+.checkeado {
+  background-color: green;
+}
+.title-h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(35, 99, 173, 1) 0%,
+    rgba(105, 242, 80, 1) 100%
+  );
+  -webkit-background-clip: text;
+}
+
+.btn-add {
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(35, 99, 173, 1) 0%,
+    rgba(105, 242, 80, 1) 100%
+  );
+  font-size: 1.3rem;
+  padding: 2px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete-all-btn {
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    rgba(35, 99, 173, 1) 0%,
+    rgba(105, 242, 80, 1) 100%
+  );
+  font-size: 1.3rem;
+  padding: 3px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks-list {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.delete-btn {
+  height: 20px;
+}
+
+.overline {
+  height: 20px;
+}
+
+.delete-btn:hover {
+  height: 22px;
+}
+
+.overline:hover {
+  height: 22px;
+}
+.listita {
+  list-style: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 300;
+  border: 2px solid #555555;
+  background-color: #555555;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  min-width: 70%;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+/*FOOTER*/
+
+.footer {
+  width: 100%;
+  padding: 10px;
+}
+
+.footer-copyright {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 30px;
+}
+
+/*HOVER*/
+
+.btn-add:hover {
+  scale: 1.2;
+}
+
+.delete-all-btn:hover {
+  scale: 1.2;
+}
+
+@media (min-width: 200px) and (max-width: 450px) {
+  .form {
+    flex-direction: column;
+  }
+}
