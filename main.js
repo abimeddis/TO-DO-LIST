@@ -17,7 +17,8 @@ const saveLocalStorage = (TASKSLIST) => {
 // CREO FUNCION DE RENDERIZADO DE TAREA
 
 const createTask = (task) =>
-  `<li class="listita">${task.name}<img class="delete-btn" src="./delete.svg.svg" alt="botón de borrar" data-name=${task.name}></li>`;
+  `<li class="listita">${task.name}<img class="delete-btn" src="./delete.svg.svg" alt="botón de borrar" 
+  data-name=${task.id}></li>`;
 
 // FUNCION DE RENDERIZADO DE LISTA
 
@@ -40,23 +41,32 @@ const hideDeleteAllBtn = (TASKSLIST) => {
 const addTask = (e) => {
   e.preventDefault();
   const taskName = INPUT.value.trim().replace(/\s+/g, " ");
+
   if (!taskName.length) {
     alert("Por Favor Ingrese una tarea");
     return;
-  } else if (
+  }
+  if (
     tasks.some((task) => task.name.toLowerCase() === taskName.toLowerCase())
   ) {
     alert("Ya existe una tarea con ese nombre");
     return;
   }
+  const taskId = replaceEspaceForUnderscore(taskName);
 
-  tasks = [...tasks, { name: taskName }];
+  tasks = [...tasks, { name: taskName, id: taskId }];
   INPUT.value = "";
   renderTasksList(tasks);
   saveLocalStorage(tasks);
   hideDeleteAllBtn(tasks);
 };
 
+replaceEspaceForUnderscore = (value) => {
+  while (value.indexOf(" ") > -1) {
+    value = value.replace(" ", "_");
+  }
+  return value;
+};
 //FUNCION BORRAR 1 TAREA
 
 const deleteTask = (e) => {
@@ -64,7 +74,7 @@ const deleteTask = (e) => {
 
   const filterName = e.target.dataset.name;
 
-  tasks = tasks.filter((task) => task.name !== filterName);
+  tasks = tasks.filter((task) => task.id !== filterName);
   renderTasksList(tasks);
   saveLocalStorage(tasks);
   hideDeleteAllBtn(tasks);
